@@ -49,10 +49,30 @@
       min-height: max(884px, 100dvh);
     }
   </style>
+  <!-- Desktop-only blocker styles -->
+  <style>
+    .desktop-blocker { display: none; }
+    @media (min-width: 1024px) {
+      .desktop-blocker { display: flex; position: fixed; inset: 0; z-index: 60; align-items: center; justify-content: center; padding: 2rem; }
+      .desktop-blocker .box { max-width: 720px; width: 100%; background: var(--tw-bg-opacity, #faf7f3); color: #1b0d12; border-radius: 0.75rem; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.12); }
+      .desktop-blocker .box h2 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+      .desktop-blocker .box p { opacity: 0.9; margin-bottom: 1rem; }
+      .site-content { display: none !important; }
+    }
+  </style>
   </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-[#1b0d12] dark:text-[#fcf8f9]">
+
+  <!-- Mensaje visible solo en escritorio: pedir abrir en celular -->
+  <div class="desktop-blocker" role="dialog" aria-modal="true">
+    <div class="box">
+      <h2>Abre esto en tu celular</h2>
+      <p>Esta página está optimizada para dispositivos móviles. Por favor, ábrela desde tu teléfono para la mejor experiencia.</p>
+      <p style="font-size:0.85rem;color:#6b6866;">Si necesitas verla en escritorio, reduce el ancho de la ventana o usa las herramientas de desarrollador para simular un dispositivo móvil.</p>
+    </div>
+  </div>
 <!-- Main Content Wrapper -->
-<main class="relative w-full overflow-x-hidden min-h-screen">
+<main class="site-content relative w-full overflow-x-hidden min-h-screen">
 <!-- Hero Section -->
 <section class="relative h-screen w-full flex flex-col justify-end">
 <div class="absolute inset-0 bg-cover bg-center" data-alt="Pareja" style='background-image: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 60%, rgba(34,16,22,0.8) 100%), url("pareja.jpg");'>
@@ -310,65 +330,67 @@ Estamos muy emocionados de celebrar este día especial con nuestros amigos y fam
                 </p>
 </div>
 <!-- Registry List -->
-<div class="px-4 flex flex-col gap-4 pb-12">
-<!-- Card 1: Department Store -->
-<div class="flex items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-[#2d1a20] p-4 shadow-[0_2px_12px_rgba(0,0,0,0.06)] border border-gray-100 dark:border-white/5 transition-all hover:scale-[1.01]">
-<div class="flex flex-[2_2_0px] flex-col justify-between py-1">
-<div class="flex flex-col gap-1">
-<div class="flex items-center gap-2 mb-1">
-<p class="text-[#1b0d12] dark:text-[#fcf8f9] text-lg font-bold leading-tight">Amazon</p>
-</div>
-<p class="text-[#000000] dark:text-[#e2b0c1] text-sm font-normal leading-normal">
-                                Los escenciales para la casa, para nuestra nueva vida juntos.
-                            </p>
-</div>
-<button class="flex min-w-[120px] max-w-fit cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary text-white gap-2 text-sm font-semibold leading-normal mt-4 shadow-sm active:scale-95 transition-transform">
-<span class="truncate">Ver más</span>
-</button>
-</div>
-<div class="w-24 bg-center bg-no-repeat bg-cover rounded-lg aspect-square" data-alt="Kitchen and home decor items" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAOR4UenT02Q-XQFthtH2lmxXmD423UF77xYJ1epEUFNxsH9ZMe_YLlGFCOsed-gY6CthtIxcEXwIgZEc6MtoBMwZMUxpOBoUfsOYJ6z30uFLUj_ncCb6lYLR8M3RxIOXgD5asrL0mEPcstuyryP3Hr1EFLw5ArNGukiMPPghPDFOk0tcONQfsRakuuy08mHRUBVcrAc_RNUkX6ih0qibXD9OmhukNHFUPvIfqjFbnE8C4R_9eePtyeb_MIsg-uolJvNZTH7Pg-WD5x");'></div>
-</div>
-<!-- Card 2: Honeymoon Fund -->
-<div class="flex items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-[#2d1a20] p-4 shadow-[0_2px_12px_rgba(0,0,0,0.06)] border border-gray-100 dark:border-white/5 transition-all hover:scale-[1.01]">
-<div class="flex flex-[2_2_0px] flex-col justify-between py-1">
-<div class="flex flex-col gap-1">
-<div class="flex items-center gap-2 mb-1">
-<p class="text-[#1b0d12] dark:text-[#fcf8f9] text-lg font-bold leading-tight">Liverpool</p>
-</div>
-<p class="text-[#000000] dark:text-[#e2b0c1] text-sm font-normal leading-normal">
-                                Ayúdanos a crear recuerdos en nuestra primera aventura como recién casados.
-                            </p>
-</div>
-<button class="flex min-w-[120px] max-w-fit cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary text-white gap-2 text-sm font-semibold leading-normal mt-4 shadow-sm active:scale-95 transition-transform">
-<span class="truncate">Ver más</span>
-</button>
-</div>
-<div class="w-24 bg-center bg-no-repeat bg-cover rounded-lg aspect-square" data-alt="Tropical beach vacation scenery" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB0WwpUX6njIhTSxJBhf_BXsNZXayZXAFj4L2wH1eYk9QImVLjqwt8L3RellSOOtK0iSVYhU2wQlu6Tqy4lwtRpbTA2_vFNHkIj9FapNwT2Xhd_Ft2SIXAcX9lQds3x2IUumGd08h154gCbtcWnKeEphM8Mk6o-j0kZTDvf4-0hf79VFhnWuPWIqQ0rpriuBXeiIwp8OLf_fO7lBByoKbPGOFALpAjqHqnFle7LyRz2QT-3SoXdhwzSMvrsT93o_JwKqmuSCM87HViX");'></div>
-</div>
-<!-- Card 3: Amazon Registry -->
-<div class="flex items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-[#2d1a20] p-4 shadow-[0_2px_12px_rgba(0,0,0,0.06)] border border-gray-100 dark:border-white/5 transition-all hover:scale-[1.01]">
-<div class="flex flex-[2_2_0px] flex-col justify-between py-1">
-<div class="flex flex-col gap-1">
-<div class="flex items-center gap-2 mb-1">
-<p class="text-[#1b0d12] dark:text-[#fcf8f9] text-lg font-bold leading-tight">Cimaco</p>
-</div>
-<p class="text-[#000000] dark:text-[#e2b0c1] text-sm font-normal leading-normal">
-                            Para equipar nuestro hogar con todo lo que necesitamos para construir juntos.
-                            </p>
-</div>
-<button class="flex min-w-[120px] max-w-fit cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary text-white gap-2 text-sm font-semibold leading-normal mt-4 shadow-sm active:scale-95 transition-transform">
-<span class="truncate">Ver más</span>
-</button>
-</div>
-<div class="w-24 bg-center bg-no-repeat bg-cover rounded-lg aspect-square" data-alt="Stacked cardboard packages" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBMNbKeFnd7qu4c31vOAOEesowE--Dg_W9vqjrQw9RYUOXFe9QnfN7nDtUXEKvLUataWcv64VDRiEmiKEjjRGnRAmkE4KFcGhXZdLRupYYVZoaiaglAoQ-subhU4o6G-8emnx9JzwEp0TDX3dOrKPLp0gw99DPROysJ5cTOb_1_20UYU0TEyfjHkIEcCrPtdndnTXgenFpEwIAUqTkfbvlpRDB1QJeQf1PwRwhAz31m17VXU1gdXSUxajxgMIVAoRPk371xwvC8tSKY");'></div>
-</div>
-</div>
-<!-- Footer Gratitude -->
-<div class="px-8 pb-12 pt-4 text-center">
-</div>
-</div>
+<div class="px-4 flex flex-col gap-5 pb-12">
+
+<div class="px-4 py-10 flex flex-col items-center gap-6 max-w-3xl mx-auto">
+
+  <!-- Card Amazon -->
+  <div class="w-full max-w-md rounded-2xl bg-white dark:bg-[#2d1a20] p-6 shadow-lg border border-gray-200/60 dark:border-white/8 transition-all hover:scale-[1.02] hover:shadow-xl">
+
+    <div class="flex flex-col items-center text-center gap-4">
+      <h3 class="text-[#1b0d12] dark:text-[#fcf8f9] text-2xl font-bold tracking-tight">
+        Amazon
+      </h3>
+
+      <p class="text-gray-700 dark:text-[#e2b0c1] text-base leading-relaxed">
+        Los esenciales para la casa, para nuestra nueva vida juntos.
+      </p>
+
+      <button class="mt-2 min-w-[140px] h-11 px-8 rounded-xl bg-primary text-white text-sm font-semibold shadow-md transition-all hover:bg-primary/90 active:scale-95">
+        Ver más
+      </button>
+    </div>
+  </div>
+
+  <!-- Card Liverpool -->
+  <div class="w-full max-w-md rounded-2xl bg-white dark:bg-[#2d1a20] p-6 shadow-lg border border-gray-200/60 dark:border-white/8 transition-all hover:scale-[1.02] hover:shadow-xl">
+
+    <div class="flex flex-col items-center text-center gap-4">
+      <h3 class="text-[#1b0d12] dark:text-[#fcf8f9] text-2xl font-bold tracking-tight">
+        Liverpool
+      </h3>
+
+      <p class="text-gray-700 dark:text-[#e2b0c1] text-base leading-relaxed">
+        Ayúdanos a crear recuerdos en nuestra primera aventura como recién casados.
+      </p>
+
+      <button class="mt-2 min-w-[140px] h-11 px-8 rounded-xl bg-primary text-white text-sm font-semibold shadow-md transition-all hover:bg-primary/90 active:scale-95">
+        Ver más
+      </button>
+    </div>
+  </div>
+
+  <!-- Card Cimaco -->
+  <div class="w-full max-w-md rounded-2xl bg-white dark:bg-[#2d1a20] p-6 shadow-lg border border-gray-200/60 dark:border-white/8 transition-all hover:scale-[1.02] hover:shadow-xl">
+
+    <div class="flex flex-col items-center text-center gap-4">
+      <h3 class="text-[#1b0d12] dark:text-[#fcf8f9] text-2xl font-bold tracking-tight">
+        Cimaco
+      </h3>
+
+      <p class="text-gray-700 dark:text-[#e2b0c1] text-base leading-relaxed">
+        Para equipar nuestro hogar con todo lo que necesitamos para construir juntos.
+      </p>
+
+      <button class="mt-2 min-w-[140px] h-11 px-8 rounded-xl bg-primary text-white text-sm font-semibold shadow-md transition-all hover:bg-primary/90 active:scale-95">
+        Ver más
+      </button>
+    </div>
+  </div>
+
 </div>
 
+</div>
 <!-- ============================================
      SECCIÓN CÓDIGO DE VESTIMENTA
      ============================================ -->
