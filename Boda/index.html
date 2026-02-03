@@ -71,6 +71,22 @@
       <p style="font-size:0.85rem;color:#6b6866;">Si necesitas verla en escritorio, reduce el ancho de la ventana o usa las herramientas de desarrollador para simular un dispositivo móvil.</p>
     </div>
   </div>
+
+  <!-- Modal personalizado para confirmación de envío -->
+  <div id="successModal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white dark:bg-[#2d1a20] rounded-2xl p-8 max-w-sm w-full mx-4 shadow-2xl border border-gray-200/60 dark:border-white/8">
+      <div class="text-center">
+        <div class="mb-4 flex justify-center">
+          <span class="material-symbols-outlined text-primary text-5xl">check_circle</span>
+        </div>
+        <h2 class="text-[#1b0d12] dark:text-[#fcf8f9] text-2xl font-bold mb-2" id="modalTitle">¡Confirmación Enviada!</h2>
+        <p class="text-[#1b0d12]/70 dark:text-[#fcf8f9]/80 text-base mb-6" id="modalMessage">Gracias por confirmar tu asistencia.</p>
+        <button onclick="document.getElementById('successModal').classList.add('hidden')" class="w-full h-11 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-all">
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
 <!-- Main Content Wrapper -->
 <main class="site-content relative w-full overflow-x-hidden min-h-screen">
 <!-- Hero Section -->
@@ -85,7 +101,7 @@
 <p class="text-white/70 text-sm font-light uppercase tracking-widest">Saltillo, Coahuila</p>
 </div>
 <!-- Scroll Indicator -->
-<div class="absolute bottom-14 left-1/2 -translate-x-1/2 text-white/50 flex flex-col items-center">
+<div class="absolute bottom-12 left-1/2 -translate-x-1/2 text-white/50 flex flex-col items-center">
 <span class="text-[10px] uppercase tracking-widest mb-2">Desplázate</span>
 <span class="material-symbols-outlined animate-bounce">expand_more</span>
 </div>
@@ -99,28 +115,28 @@
 <!-- Days -->
 <div class="flex grow basis-0 flex-col items-center gap-2">
 <div class="flex size-20 items-center justify-center rounded-full border border-accent-gold/30 bg-white dark:bg-[#3a1c25] shadow-sm">
-<p class="text-primary dark:text-primary text-2xl font-bold leading-tight">124</p>
+<p class="text-primary dark:text-primary text-2xl font-bold leading-tight" data-countdown="days">0</p>
 </div>
 <p class="text-[#1b0d12]/50 dark:text-[#fcf8f9]/50 text-[10px] uppercase tracking-widest font-bold">Días</p>
 </div>
 <!-- Hours -->
 <div class="flex grow basis-0 flex-col items-center gap-2">
 <div class="flex size-20 items-center justify-center rounded-full border border-accent-gold/30 bg-white dark:bg-[#3a1c25] shadow-sm">
-<p class="text-primary dark:text-primary text-2xl font-bold leading-tight">08</p>
+<p class="text-primary dark:text-primary text-2xl font-bold leading-tight" data-countdown="hours">0</p>
 </div>
 <p class="text-[#1b0d12]/50 dark:text-[#fcf8f9]/50 text-[10px] uppercase tracking-widest font-bold">Horas</p>
 </div>
 <!-- Minutes -->
 <div class="flex grow basis-0 flex-col items-center gap-2">
 <div class="flex size-20 items-center justify-center rounded-full border border-accent-gold/30 bg-white dark:bg-[#3a1c25] shadow-sm">
-<p class="text-primary dark:text-primary text-2xl font-bold leading-tight">45</p>
+<p class="text-primary dark:text-primary text-2xl font-bold leading-tight" data-countdown="minutes">0</p>
 </div>
 <p class="text-[#1b0d12]/50 dark:text-[#fcf8f9]/50 text-[10px] uppercase tracking-widest font-bold">Mins</p>
 </div>
 <!-- Seconds -->
 <div class="flex grow basis-0 flex-col items-center gap-2">
 <div class="flex size-20 items-center justify-center rounded-full border border-accent-gold/30 bg-white dark:bg-[#3a1c25] shadow-sm">
-<p class="text-primary dark:text-primary text-2xl font-bold leading-tight">12</p>
+<p class="text-primary dark:text-primary text-2xl font-bold leading-tight" data-countdown="seconds">0</p>
 </div>
 <p class="text-[#1b0d12]/50 dark:text-[#fcf8f9]/50 text-[10px] uppercase tracking-widest font-bold">Segs</p>
 </div>
@@ -508,18 +524,18 @@ Un vestido de noche largo, un elegante cóctel o un traje de gala.
 <!-- Campo Nombre -->
 <div class="flex flex-col gap-2">
 <label class="text-[#1b0d12] dark:text-white text-base font-medium leading-normal">Nombre Completo</label>
-<input class="form-input flex w-full rounded-lg text-[#1b0d12] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/30 border border-[#e7cfd7] dark:border-white/10 bg-white dark:bg-white/5 h-14 placeholder:text-[#9a4c66] dark:placeholder:text-white/40 p-[15px] text-base font-normal" placeholder="Ingresa tu nombre completo" type="text"/>
+<input class="form-input flex w-full rounded-lg text-[#1b0d12] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/30 border border-[#e7cfd7] dark:border-white/10 bg-white dark:bg-white/5 h-14 placeholder:text-[#9a4c66] dark:placeholder:text-white/40 p-[15px] text-base font-normal" placeholder="Ingresa tu nombre completo" type="text" data-field="name"/>
 </div>
 
 <!-- Toggle de Asistencia -->
 <div class="flex flex-col gap-3">
 <label class="text-[#1b0d12] dark:text-white text-base font-medium leading-normal">¿Asistirás?</label>
 <div class="grid grid-cols-2 gap-3">
-<button class="flex items-center justify-center gap-2 h-14 rounded-lg border-2 border-primary bg-primary/10 text-primary font-bold">
+<button type="button" data-attendance="yes" class="flex items-center justify-center gap-2 h-14 rounded-lg border-2 border-primary bg-primary/10 text-primary font-bold">
 <span class="material-symbols-outlined">check_circle</span>
                             Sí, estaré allí
                         </button>
-<button class="flex items-center justify-center gap-2 h-14 rounded-lg border border-[#e7cfd7] dark:border-white/10 bg-white dark:bg-white/5 text-[#1b0d12] dark:text-white font-medium">
+<button type="button" data-attendance="no" class="flex items-center justify-center gap-2 h-14 rounded-lg border border-[#e7cfd7] dark:border-white/10 bg-white dark:bg-white/5 text-[#1b0d12] dark:text-white font-medium">
 <span class="material-symbols-outlined">cancel</span>
                             Lo siento, No
                         </button>
@@ -530,11 +546,11 @@ Un vestido de noche largo, un elegante cóctel o un traje de gala.
 <div class="flex flex-col gap-3">
 <label class="text-[#1b0d12] dark:text-white text-base font-medium leading-normal">Número de Invitados</label>
 <div class="flex items-center justify-between bg-white dark:bg-white/5 border border-[#e7cfd7] dark:border-white/10 rounded-lg p-2 h-14">
-<button class="size-10 flex items-center justify-center rounded-md bg-background-light dark:bg-white/10 text-primary">
+<button type="button" data-action="decrease-guests" class="size-10 flex items-center justify-center rounded-md bg-background-light dark:bg-white/10 text-primary">
 <span class="material-symbols-outlined">remove</span>
 </button>
-<span class="text-lg font-bold">1</span>
-<button class="size-10 flex items-center justify-center rounded-md bg-background-light dark:bg-white/10 text-primary">
+<span class="text-lg font-bold" data-guest-count>1</span>
+<button type="button" data-action="increase-guests" class="size-10 flex items-center justify-center rounded-md bg-background-light dark:bg-white/10 text-primary">
 <span class="material-symbols-outlined">add</span>
 </button>
 </div>
@@ -543,17 +559,25 @@ Un vestido de noche largo, un elegante cóctel o un traje de gala.
 <!-- Restricciones Dietéticas -->
 <div class="flex flex-col gap-2">
 <label class="text-[#1b0d12] dark:text-white text-base font-medium leading-normal">Mensaje</label>
-<textarea class="form-textarea flex w-full rounded-lg text-[#1b0d12] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/30 border border-[#e7cfd7] dark:border-white/10 bg-white dark:bg-white/5 h-28 placeholder:text-[#9a4c66] dark:placeholder:text-white/40 p-[15px] text-base font-normal resize-none" placeholder=""></textarea>
+<textarea class="form-textarea flex w-full rounded-lg text-[#1b0d12] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/30 border border-[#e7cfd7] dark:border-white/10 bg-white dark:bg-white/5 h-28 placeholder:text-[#9a4c66] dark:placeholder:text-white/40 p-[15px] text-base font-normal resize-none" placeholder="" data-field="message"></textarea>
 </div>
 
 <!-- Botón de Envío -->
 <div class="pt-4">
-<button class="w-full h-14 bg-primary text-white font-bold text-lg rounded-lg shadow-gold-glow flex items-center justify-center gap-2 active:scale-[0.98] transition-transform">
+<button type="button" class="w-full h-14 bg-primary text-white font-bold text-lg rounded-lg shadow-gold-glow flex items-center justify-center gap-2 active:scale-[0.98] transition-transform">
 <span>Enviar Confirmación</span>
 </button>
 </div>
 </div>
 </main>
+
+<!-- Formulario envuelto con data-form para capturar clics -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const mainElement = document.querySelector('main:last-of-type');
+  if (mainElement) mainElement.setAttribute('data-form', 'rsvp');
+});
+</script>
 
 <!-- ============================================
      PIE DE PÁGINA
@@ -575,9 +599,134 @@ No podemos esperar para celebrar contigo.
 <footer class="py-12 border-t border-accent-gold/10 text-center">
 <p class="text-[10px] uppercase tracking-[0.2em] text-[#1b0d12]/40 dark:text-[#fcf8f9]/40">InvitedMx</p>
 </footer>
+
+<!-- JavaScript Funcional -->
+<script>
+  // ========== COUNTDOWN ==========
+  function updateCountdown() {
+    const targetDate = new Date('2026-06-24T00:00:00').getTime();
+    
+    function calculate() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+      
+      if (distance < 0) {
+        document.querySelectorAll('[data-countdown="days"]').forEach(el => el.textContent = '0');
+        document.querySelectorAll('[data-countdown="hours"]').forEach(el => el.textContent = '0');
+        document.querySelectorAll('[data-countdown="minutes"]').forEach(el => el.textContent = '0');
+        document.querySelectorAll('[data-countdown="seconds"]').forEach(el => el.textContent = '0');
+        return;
+      }
+      
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      
+      document.querySelectorAll('[data-countdown="days"]').forEach(el => el.textContent = String(days).padStart(3, '0'));
+      document.querySelectorAll('[data-countdown="hours"]').forEach(el => el.textContent = String(hours).padStart(2, '0'));
+      document.querySelectorAll('[data-countdown="minutes"]').forEach(el => el.textContent = String(minutes).padStart(2, '0'));
+      document.querySelectorAll('[data-countdown="seconds"]').forEach(el => el.textContent = String(seconds).padStart(2, '0'));
+    }
+    
+    calculate();
+    setInterval(calculate, 1000);
+  }
+  
+  // ========== GUEST COUNTER ==========
+  function setupGuestCounter() {
+    const decreaseBtn = document.querySelector('[data-action="decrease-guests"]');
+    const increaseBtn = document.querySelector('[data-action="increase-guests"]');
+    const guestDisplay = document.querySelector('[data-guest-count]');
+    
+    if (decreaseBtn && increaseBtn && guestDisplay) {
+      decreaseBtn.addEventListener('click', () => {
+        let count = parseInt(guestDisplay.textContent);
+        if (count > 1) {
+          count--;
+          guestDisplay.textContent = count;
+        }
+      });
+      
+      increaseBtn.addEventListener('click', () => {
+        let count = parseInt(guestDisplay.textContent);
+        count++;
+        guestDisplay.textContent = count;
+      });
+    }
+  }
+  
+  // ========== ATTENDANCE TOGGLE ==========
+  function setupAttendanceButtons() {
+    const yesBtn = document.querySelector('[data-attendance="yes"]');
+    const noBtn = document.querySelector('[data-attendance="no"]');
+    
+    if (yesBtn && noBtn) {
+      yesBtn.addEventListener('click', () => {
+        yesBtn.classList.add('border-2', 'border-primary', 'bg-primary/10', 'text-primary', 'font-bold');
+        yesBtn.classList.remove('border', 'border-[#e7cfd7]', 'dark:border-white/10', 'bg-white', 'dark:bg-white/5', 'text-[#1b0d12]', 'dark:text-white', 'font-medium');
+        
+        noBtn.classList.remove('border-2', 'border-primary', 'bg-primary/10', 'text-primary', 'font-bold');
+        noBtn.classList.add('border', 'border-[#e7cfd7]', 'dark:border-white/10', 'bg-white', 'dark:bg-white/5', 'text-[#1b0d12]', 'dark:text-white', 'font-medium');
+      });
+      
+      noBtn.addEventListener('click', () => {
+        noBtn.classList.add('border-2', 'border-primary', 'bg-primary/10', 'text-primary', 'font-bold');
+        noBtn.classList.remove('border', 'border-[#e7cfd7]', 'dark:border-white/10', 'bg-white', 'dark:bg-white/5', 'text-[#1b0d12]', 'dark:text-white', 'font-medium');
+        
+        yesBtn.classList.remove('border-2', 'border-primary', 'bg-primary/10', 'text-primary', 'font-bold');
+        yesBtn.classList.add('border', 'border-[#e7cfd7]', 'dark:border-white/10', 'bg-white', 'dark:bg-white/5', 'text-[#1b0d12]', 'dark:text-white', 'font-medium');
+      });
+    }
+  }
+  
+  // ========== FORM SUBMISSION ==========
+  function setupFormSubmission() {
+    const form = document.querySelector('[data-form="rsvp"]');
+    const nameInput = document.querySelector('[data-field="name"]');
+    const messageTextarea = document.querySelector('[data-field="message"]');
+    const modal = document.getElementById('successModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalMessage = document.getElementById('modalMessage');
+    
+    if (form) {
+      form.addEventListener('click', (e) => {
+        if (e.target.tagName === 'BUTTON' && e.target.closest('[data-form="rsvp"]')) {
+          e.preventDefault();
+          
+          const name = nameInput?.value.trim() || 'Invitado';
+          
+          if (!name || name === 'Invitado') {
+            modalTitle.textContent = 'Campo requerido';
+            modalMessage.textContent = 'Por favor, ingresa tu nombre completo.';
+            modal.classList.remove('hidden');
+            return;
+          }
+          
+          modalTitle.textContent = '¡Confirmación Enviada!';
+          modalMessage.textContent = `¡Gracias ${name}! Tu confirmación ha sido enviada exitosamente. 🎉`;
+          modal.classList.remove('hidden');
+          
+          // Limpiar formulario después de 1 segundo
+          setTimeout(() => {
+            if (nameInput) nameInput.value = '';
+            if (messageTextarea) messageTextarea.value = '';
+            if (document.querySelector('[data-guest-count]')) {
+              document.querySelector('[data-guest-count]').textContent = '1';
+            }
+          }, 1000);
+        }
+      });
+    }
+  }
+  
+  // ========== INIT ==========
+  document.addEventListener('DOMContentLoaded', () => {
+    updateCountdown();
+    setupGuestCounter();
+    setupAttendanceButtons();
+    setupFormSubmission();
+  });
+</script>
 </body>
 </html>
-
-
-
-
