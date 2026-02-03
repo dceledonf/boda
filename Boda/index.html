@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Julián & Sofía - Cuenta Regresiva de Boda</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+<!-- ============================================
+     CONFIGURACIÓN DE TAILWIND
+     ============================================ -->
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#c9a876",
+                "accent-gold": "#d4a574",
+                "background-light": "#faf7f3",
+                "background-dark": "#3d2f27",
+              },
+              fontFamily: {
+                "display": ["Plus Jakarta Sans", "sans-serif"],
+                "serif": ["Playfair Display", "serif"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+
+<!-- ============================================
+     ESTILOS GLOBALES
+     ============================================ -->
+<style>
+        .gold-gradient {
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+        }
+        .dark .gold-gradient {
+            background: linear-gradient(135deg, #221016 0%, #3a1c25 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#1b0d12] dark:text-[#fcf8f9]">
+<!-- Main Content Wrapper -->
+<main class="relative w-full overflow-x-hidden min-h-screen">
+<!-- Hero Section -->
+<section class="relative h-screen w-full flex flex-col justify-end">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="Pareja" style='background-image: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 60%, rgba(34,16,22,0.8) 100%), url("pareja.jpg");'>
+</div>
+<div class="relative z-10 px-6 pb-20 text-center">
+<p class="text-accent-gold font-medium tracking-[0.3em] uppercase text-xs mb-4">Save the date</p>
+<h1 class="text-white font-serif text-5xl md:text-7xl mb-4 italic">Ulises &amp; Gabriela</h1>
+<div class="w-12 h-[1px] bg-accent-gold mx-auto mb-6"></div>
+<p class="text-white/90 text-lg font-light tracking-wide mb-2">Sábado, 24 de Junio de 2024</p>
+<p class="text-white/70 text-sm font-light uppercase tracking-widest">Saltillo, Coahuila</p>
+</div>
+<!-- Scroll Indicator -->
+<div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 flex flex-col items-center">
+<span class="text-[10px] uppercase tracking-widest mb-2">Desplázate</span>
+<span class="material-symbols-outlined animate-bounce">expand_more</span>
+</div>
+</section>
+<!-- Countdown Section -->
+<section class="py-16 px-4 bg-background-light dark:bg-background-dark text-center">
+<div class="max-w-md mx-auto">
+<h3 class="text-2xl font-serif italic text-primary dark:text-primary mb-2">Cuenta Regresiva</h3>
+<p class="text-[#1b0d12]/60 dark:text-[#fcf8f9]/60 text-sm mb-10">Hasta que digamos "Sí, acepto"</p>
+<div class="flex gap-3 justify-center">
+<!-- Days -->
+<div class="flex grow basis-0 flex-col items-center gap-2">
+<div class="flex size-20 items-center justify-center rounded-full border border-accent-gold/30 bg-white dark:bg-[#3a1c25] shadow-sm">
+<p class="text-primary dark:text-primary text-2xl font-bold leading-tight">124</p>
+</div>
+<p class="text-[#1b0d12]/50 dark:text-[#fcf8f9]/50 text-[10px] uppercase tracking-widest font-bold">Días</p>
+</div>
+<!-- Hours -->
+<div class="flex grow basis-0 flex-col items-center gap-2">
+<div class="flex size-20 items-center justify-center rounded-full border border-accent-gold/30 bg-white dark:bg-[#3a1c25] shadow-sm">
+<p class="text-primary dark:text-primary text-2xl font-bold leading-tight">08</p>
+</div>
+<p class="text-[#1b0d12]/50 dark:text-[#fcf8f9]/50 text-[10px] uppercase tracking-widest font-bold">Horas</p>
+</div>
+<!-- Minutes -->
+<div class="flex grow basis-0 flex-col items-center gap-2">
+<div class="flex size-20 items-center justify-center rounded-full border border-accent-gold/30 bg-white dark:bg-[#3a1c25] shadow-sm">
+<p class="text-primary dark:text-primary text-2xl font-bold leading-tight">45</p>
+</div>
+<p class="text-[#1b0d12]/50 dark:text-[#fcf8f9]/50 text-[10px] uppercase tracking-widest font-bold">Mins</p>
+</div>
+<!-- Seconds -->
+<div class="flex grow basis-0 flex-col items-center gap-2">
+<div class="flex size-20 items-center justify-center rounded-full border border-accent-gold/30 bg-white dark:bg-[#3a1c25] shadow-sm">
+<p class="text-primary dark:text-primary text-2xl font-bold leading-tight">12</p>
+</div>
+<p class="text-[#1b0d12]/50 dark:text-[#fcf8f9]/50 text-[10px] uppercase tracking-widest font-bold">Segs</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ============================================
+     SECCIÓN MENSAJE DE BIENVENIDA
+     ============================================ -->
+<section class="px-6 py-12 text-center bg-[#fdfbfb] dark:bg-[#2b161e]">
+<div class="max-w-2xl mx-auto border border-accent-gold/10 p-8 rounded-xl">
+<span class="material-symbols-outlined text-accent-gold mb-4 text-3xl">celebration</span>
+<h2 class="text-[#1b0d12] dark:text-white tracking-light text-2xl font-serif italic mb-4">Bienvenidos a Nuestro Viaje</h2>
+<p class="text-[#1b0d12]/80 dark:text-[#fcf8f9]/80 text-base font-normal leading-relaxed mb-8">
+Estamos muy emocionados de celebrar este día especial con nuestros amigos y familia más cercanos. Su amor y apoyo significan el mundo para nosotros mientras comenzamos nuestro nuevo capítulo juntos en el corazón de la Toscana.
+                </p>
+<button class="bg-primary hover:bg-primary/90 text-white font-bold py-4 px-10 rounded-full transition-all duration-300 shadow-lg shadow-primary/20 tracking-widest uppercase text-xs">
+                    CONFIRMAR ASISTENCIA
+                </button>
+</div>
+</section>
+
+<!-- ============================================
+     TARJETA VISTA PREVIA DE UBICACIÓN
+     ============================================ -->
+<section class="px-4 py-16">
+<div class="relative overflow-hidden rounded-2xl aspect-[4/5] bg-[#f3e7eb] group">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="Vista aérea hermosa de la arquitectura de Saltillo" style='background-image: linear-gradient(to top, rgba(0,0,0,0.6), transparent), url("Saltillo.jpg");'>
+</div>
+<div class="absolute bottom-0 left-0 p-6 w-full text-white">
+<p class="text-xs font-bold uppercase tracking-widest text-accent-gold mb-1">Lugar</p>
+<h3 class="text-2xl font-serif italic mb-2">Saltillo, Caohuila</h3>
+<div class="flex items-center gap-2 text-sm font-light opacity-90">
+<span class="material-symbols-outlined text-sm">location_on</span>
+<span>Blvd. Venustiano Carranza 8550, Valle Hermoso, 25207 Saltillo, Coah.</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ============================================
+     SECCIÓN CRONOLOGÍA DE EVENTOS
+     ============================================ -->
+
+<!-- Encabezado de Sección -->
+<div class="pt-6 pb-2">
+<h4 class="text-primary text-sm font-bold uppercase leading-normal tracking-[0.15em] px-4 py-2 text-center">Itinerario</h4>
+<p class="text-gray-500 dark:text-gray-400 text-xs text-center italic">Sábado, 21 de Junio de 2026</p>
+</div>
+
+<!-- Línea de Tiempo -->
+<div class="relative px-6 mt-8 timeline-dotted">
+
+<!-- Elemento Línea de Tiempo 1: Ceremonia -->
+<div class="relative grid grid-cols-[40px_1fr] gap-x-6 pb-12">
+<div class="relative z-10 flex flex-col items-center">
+<div class="flex size-10 items-center justify-center rounded-full bg-white dark:bg-zinc-800 border-2 border-primary shadow-sm text-primary">
+<span class="material-symbols-outlined">church</span>
+</div>
+</div>
+<div class="flex flex-col pt-1">
+<span class="text-primary text-xs font-bold uppercase tracking-wider mb-1">4:00 PM</span>
+<h3 class="text-[#1b0d12] dark:text-white text-lg font-bold leading-tight">La Ceremonia</h3>
+<p class="text-gray-600 dark:text-gray-300 text-sm mt-1">Templo San Juan Nepomuceno</p>
+<p class="text-gray-400 dark:text-gray-500 text-xs mt-2 leading-relaxed">Por favor lleguen 15 minutos antes para encontrar sus asientos antes del cortejo.</p>
+</div>
+</div>
+
+<!-- Elemento Línea de Tiempo 2: Cóctel -->
+<div class="relative grid grid-cols-[40px_1fr] gap-x-6 pb-12">
+<div class="relative z-10 flex flex-col items-center">
+<div class="flex size-10 items-center justify-center rounded-full bg-white dark:bg-zinc-800 border-2 border-primary/40 shadow-sm text-primary">
+<span class="material-symbols-outlined">local_bar</span>
+</div>
+</div>
+<div class="flex flex-col pt-1">
+<span class="text-primary text-xs font-bold uppercase tracking-wider mb-1">5:30 PM</span>
+<h3 class="text-[#1b0d12] dark:text-white text-lg font-bold leading-tight">Hora de Cóctel</h3>
+<p class="text-gray-600 dark:text-gray-300 text-sm mt-1">Villa Ferré</p>
+<p class="text-gray-400 dark:text-gray-500 text-xs mt-2 leading-relaxed">Disfruten cócteles de firma y aperitivos mientras nos tomamos algunas fotos.</p>
+</div>
+</div>
+
+<!-- Elemento Línea de Tiempo 3: Cena -->
+<div class="relative grid grid-cols-[40px_1fr] gap-x-6 pb-12">
+<div class="relative z-10 flex flex-col items-center">
+<div class="flex size-10 items-center justify-center rounded-full bg-white dark:bg-zinc-800 border-2 border-primary/40 shadow-sm text-primary">
+<span class="material-symbols-outlined">restaurant</span>
+</div>
+</div>
+<div class="flex flex-col pt-1">
+<span class="text-primary text-xs font-bold uppercase tracking-wider mb-1">7:00 PM</span>
+<h3 class="text-[#1b0d12] dark:text-white text-lg font-bold leading-tight">Cena y Discursos</h3>
+<p class="text-gray-600 dark:text-gray-300 text-sm mt-1">Salón principal</p>
+<p class="text-gray-400 dark:text-gray-500 text-xs mt-2 leading-relaxed">Una cena formal con servicio de mesa seguida de brindis de nuestro cortejo.</p>
+</div>
+</div>
+
+<!-- Elemento Línea de Tiempo 4: Fiesta -->
+<div class="relative grid grid-cols-[40px_1fr] gap-x-6 pb-12">
+<div class="relative z-10 flex flex-col items-center">
+<div class="flex size-10 items-center justify-center rounded-full bg-white dark:bg-zinc-800 border-2 border-primary/40 shadow-sm text-primary">
+<span class="material-symbols-outlined">queue_music</span>
+</div>
+</div>
+<div class="flex flex-col pt-1">
+<span class="text-primary text-xs font-bold uppercase tracking-wider mb-1">9:00 PM</span>
+<h3 class="text-[#1b0d12] dark:text-white text-lg font-bold leading-tight">La Fiesta</h3>
+<p class="text-gray-600 dark:text-gray-300 text-sm mt-1">Escenario Principal y Pista de Baile</p>
+<p class="text-gray-400 dark:text-gray-500 text-xs mt-2 leading-relaxed">Bailen toda la noche con nuestra banda en vivo y aperitivos nocturnos.</p>
+</div>
+</div>
+
+<!-- Elemento Línea de Tiempo 5: Salida Grande -->
+<div class="relative grid grid-cols-[40px_1fr] gap-x-6">
+<div class="relative z-10 flex flex-col items-center">
+<div class="flex size-10 items-center justify-center rounded-full bg-primary shadow-lg shadow-primary/20 text-white">
+<span class="material-symbols-outlined">auto_awesome</span>
+</div>
+</div>
+<div class="flex flex-col pt-1">
+<span class="text-primary text-xs font-bold uppercase tracking-wider mb-1">11:30 PM</span>
+<h3 class="text-[#1b0d12] dark:text-white text-lg font-bold leading-tight">Gran Salida</h3>
+<p class="text-gray-600 dark:text-gray-300 text-sm mt-1">Salida con Bengalas</p>
+</div>
+</div>
+</div>
+
+<!-- ============================================
+     SECCIÓN NUESTRO DÍA ESPECIAL
+     ============================================ -->
+
+<!-- Encabezado de Sección -->
+<section class="py-2">
+<h4 class="text-primary text-sm font-bold uppercase leading-normal tracking-[0.15em] px-4 py-2 text-center mt-12">Nuestro Día Especial</h4>
+</section>
+
+<!-- Mapa Decorativo de Fondo -->
+<div class="absolute inset-0 z-0 opacity-10 pointer-events-none overflow-hidden">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover" data-location="Mapa del Distrito de Patrimonio" style='background-image: url("https://placeholder.pics/svg/300");'>
+</div>
+</div>
+
+<!-- Contenedor de Tarjetas de Ubicaciones -->
+<div class="relative z-10 px-4 flex flex-col gap-6 py-4 @container">
+
+<!-- Tarjeta Ceremonia Religiosa -->
+<div class="flex flex-col items-stretch justify-start rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] bg-white dark:bg-[#2d161d] overflow-hidden border border-[#f3e8eb] dark:border-[#3d1f28]">
+<div class="w-full bg-center bg-no-repeat aspect-[16/9] bg-cover" data-alt="Catedral de estilo gótico con vitrales hermosos" style='background-image: url("sanjuan.jpeg");'>
+</div>
+<div class="flex w-full grow flex-col items-stretch justify-center gap-3 p-5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">church</span>
+<p class="text-[#1b0d12] dark:text-[#fcf8f9] text-xl font-bold leading-tight tracking-[-0.015em]">Ceremonia Religiosa</p>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary/70 text-sm">schedule</span>
+<p class="text-[#000000] dark:text-[#d48ca3] text-base font-medium">Comienza a las 4:00 PM</p>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary/70 text-sm mt-1">location_on</span>
+<p class="text-[#000000] dark:text-[#d48ca3] text-base font-normal">C. Hidalgo Sur 512, Zona Centro, 25000 Saltillo, Coah.</p>
+</div>
+</div>
+<a href="https://share.google/UmIJmUqZwkU1B0w2k" class="mt-2 flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg h-12 px-4 bg-primary text-white text-base font-semibold transition-all hover:bg-opacity-90 active:scale-95 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">map</span>
+<span class="truncate">Abrir en Mapas</span>
+</a>    
+</div>
+</div>
+
+<!-- Tarjeta Recepción -->
+<div class="flex flex-col items-stretch justify-start rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] bg-white dark:bg-[#2d161d] overflow-hidden border border-[#f3e8eb] dark:border-[#3d1f28]">
+<div class="w-full bg-center bg-no-repeat aspect-[16/9] bg-cover" data-alt="Finca elegante con configuración de recepción en jardín" style='background-image: url("villaferre.jpg");'>
+</div>
+<div class="flex w-full grow flex-col items-stretch justify-center gap-3 p-5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">celebration</span>
+<p class="text-[#1b0d12] dark:text-[#fcf8f9] text-xl font-bold leading-tight tracking-[-0.015em]">La Recepción</p>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary/70 text-sm">wine_bar</span>
+<p class="text-[#000000] dark:text-[#d48ca3] text-base font-medium">Cócteles a las 5:00 PM</p>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-primary/70 text-sm mt-1">location_on</span>
+<p class="text-[#000000] dark:text-[#d48ca3] text-base font-normal">Blvd. Venustiano Carranza 8550, Valle Hermoso, 25207 Saltillo, Coah.</p>
+</div>
+</div>
+<a href="https://share.google/O0tWH0MnWhwkF8sfx" class="mt-2 flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg h-12 px-4 bg-primary text-white text-base font-semibold transition-all hover:bg-opacity-90 active:scale-95 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">directions</span>
+<span class="truncate">Abrir en Mapas</span>
+</a>
+</div>
+</div>
+</div>
+
+
+<div class="px-4 py-6">
+<h2 class="text-[#1b0d12] dark:text-[#fcf8f9] tracking-light text-[32px] font-bold leading-tight text-center">Mesa de Regalos</h2>
+<div class="w-12 h-1 bg-primary mx-auto my-4 rounded-full opacity-60"></div>
+<p class="text-[#1b0d12] dark:text-[#fcf8f9]/80 text-base font-normal leading-relaxed text-center px-4">
+                    Tu presencia es el mayor regalo de todos, pero si deseas honrarnos con un regalo, hemos seleccionado estas opciones para su conveniencia.
+                </p>
+</div>
+<!-- Registry List -->
+<div class="px-4 flex flex-col gap-4 pb-12">
+<!-- Card 1: Department Store -->
+<div class="flex items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-[#2d1a20] p-4 shadow-[0_2px_12px_rgba(0,0,0,0.06)] border border-gray-100 dark:border-white/5 transition-all hover:scale-[1.01]">
+<div class="flex flex-[2_2_0px] flex-col justify-between py-1">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 mb-1">
+<p class="text-[#1b0d12] dark:text-[#fcf8f9] text-lg font-bold leading-tight">Amazon</p>
+</div>
+<p class="text-[#000000] dark:text-[#e2b0c1] text-sm font-normal leading-normal">
+                                Los escenciales para la casa, para nuestra nueva vida juntos.
+                            </p>
+</div>
+<button class="flex min-w-[120px] max-w-fit cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary text-white gap-2 text-sm font-semibold leading-normal mt-4 shadow-sm active:scale-95 transition-transform">
+<span class="truncate">Ver más</span>
+</button>
+</div>
+<div class="w-24 bg-center bg-no-repeat bg-cover rounded-lg aspect-square" data-alt="Kitchen and home decor items" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAOR4UenT02Q-XQFthtH2lmxXmD423UF77xYJ1epEUFNxsH9ZMe_YLlGFCOsed-gY6CthtIxcEXwIgZEc6MtoBMwZMUxpOBoUfsOYJ6z30uFLUj_ncCb6lYLR8M3RxIOXgD5asrL0mEPcstuyryP3Hr1EFLw5ArNGukiMPPghPDFOk0tcONQfsRakuuy08mHRUBVcrAc_RNUkX6ih0qibXD9OmhukNHFUPvIfqjFbnE8C4R_9eePtyeb_MIsg-uolJvNZTH7Pg-WD5x");'></div>
+</div>
+<!-- Card 2: Honeymoon Fund -->
+<div class="flex items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-[#2d1a20] p-4 shadow-[0_2px_12px_rgba(0,0,0,0.06)] border border-gray-100 dark:border-white/5 transition-all hover:scale-[1.01]">
+<div class="flex flex-[2_2_0px] flex-col justify-between py-1">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 mb-1">
+<p class="text-[#1b0d12] dark:text-[#fcf8f9] text-lg font-bold leading-tight">Liverpool</p>
+</div>
+<p class="text-[#000000] dark:text-[#e2b0c1] text-sm font-normal leading-normal">
+                                Ayúdanos a crear recuerdos en nuestra primera aventura como recién casados.
+                            </p>
+</div>
+<button class="flex min-w-[120px] max-w-fit cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary text-white gap-2 text-sm font-semibold leading-normal mt-4 shadow-sm active:scale-95 transition-transform">
+<span class="truncate">Ver más</span>
+</button>
+</div>
+<div class="w-24 bg-center bg-no-repeat bg-cover rounded-lg aspect-square" data-alt="Tropical beach vacation scenery" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB0WwpUX6njIhTSxJBhf_BXsNZXayZXAFj4L2wH1eYk9QImVLjqwt8L3RellSOOtK0iSVYhU2wQlu6Tqy4lwtRpbTA2_vFNHkIj9FapNwT2Xhd_Ft2SIXAcX9lQds3x2IUumGd08h154gCbtcWnKeEphM8Mk6o-j0kZTDvf4-0hf79VFhnWuPWIqQ0rpriuBXeiIwp8OLf_fO7lBByoKbPGOFALpAjqHqnFle7LyRz2QT-3SoXdhwzSMvrsT93o_JwKqmuSCM87HViX");'></div>
+</div>
+<!-- Card 3: Amazon Registry -->
+<div class="flex items-stretch justify-between gap-4 rounded-xl bg-white dark:bg-[#2d1a20] p-4 shadow-[0_2px_12px_rgba(0,0,0,0.06)] border border-gray-100 dark:border-white/5 transition-all hover:scale-[1.01]">
+<div class="flex flex-[2_2_0px] flex-col justify-between py-1">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 mb-1">
+<p class="text-[#1b0d12] dark:text-[#fcf8f9] text-lg font-bold leading-tight">Cimaco</p>
+</div>
+<p class="text-[#000000] dark:text-[#e2b0c1] text-sm font-normal leading-normal">
+                            Para equipar nuestro hogar con todo lo que necesitamos para construir juntos.
+                            </p>
+</div>
+<button class="flex min-w-[120px] max-w-fit cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary text-white gap-2 text-sm font-semibold leading-normal mt-4 shadow-sm active:scale-95 transition-transform">
+<span class="truncate">Ver más</span>
+</button>
+</div>
+<div class="w-24 bg-center bg-no-repeat bg-cover rounded-lg aspect-square" data-alt="Stacked cardboard packages" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBMNbKeFnd7qu4c31vOAOEesowE--Dg_W9vqjrQw9RYUOXFe9QnfN7nDtUXEKvLUataWcv64VDRiEmiKEjjRGnRAmkE4KFcGhXZdLRupYYVZoaiaglAoQ-subhU4o6G-8emnx9JzwEp0TDX3dOrKPLp0gw99DPROysJ5cTOb_1_20UYU0TEyfjHkIEcCrPtdndnTXgenFpEwIAUqTkfbvlpRDB1QJeQf1PwRwhAz31m17VXU1gdXSUxajxgMIVAoRPk371xwvC8tSKY");'></div>
+</div>
+</div>
+<!-- Footer Gratitude -->
+<div class="px-8 pb-12 pt-4 text-center">
+</div>
+</div>
+</div>
+
+<!-- ============================================
+     SECCIÓN CÓDIGO DE VESTIMENTA
+     ============================================ -->
+
+<!-- Imagen de Encabezado / Ilustración Héroe -->
+<div class="@container">
+<div class="@[480px]:px-4 @[480px]:py-3">
+<div class="w-full bg-center bg-no-repeat bg-cover flex flex-col justify-center items-center overflow-hidden bg-background-light dark:bg-background-dark @[480px]:rounded-lg min-h-[180px]" data-alt="Pareja para ceremonia de boda">
+<img src="couple.png" alt="Pareja" class="max-w-xs max-h-32 object-contain">
+</div>
+</div>
+</div>
+
+<!-- Texto de Encabezado -->
+<div class="px-4 text-center pb-2 pt-8">
+<h2 class="text-[#1b0d12] dark:text-white tracking-light text-[28px] font-bold leading-tight">Formal / Corbata Negra Opcional</h2>
+</div>
+
+<!-- Texto del Cuerpo -->
+<div class="px-4 text-center pb-6 pt-1">
+<p class="text-[#1b0d12] dark:text-gray-300 text-base font-normal leading-relaxed opacity-80">
+Esperamos celebrar con estilo. Solicitamos respetuosamente a nuestros invitados que vistan con atuendo formal para que coincida con la elegancia de la noche.
+            </p>
+</div>
+
+<!-- Cuadrícula de Texto para Especificaciones de Género -->
+<div class="grid grid-cols-1 @[480px]:grid-cols-2 gap-4 p-4">
+<div class="flex flex-1 gap-4 rounded-xl border border-primary/10 bg-white dark:bg-[#2d1a21] p-6 flex-col items-center text-center shadow-sm">
+<div class="text-primary bg-primary/10 p-3 rounded-full">
+<span class="material-symbols-outlined text-3xl">man</span>
+</div>
+<div class="flex flex-col gap-2">
+<h2 class="text-[#1b0d12] dark:text-white text-lg font-bold leading-tight">Para Hombres</h2>
+<p class="text-[#1b0d12]/70 dark:text-gray-400 text-sm font-normal leading-normal">
+Un esmoquin o un traje oscuro con camisa formal y corbata o pajarita.
+                    </p>
+</div>
+</div>
+<div class="flex flex-1 gap-4 rounded-xl border border-primary/10 bg-white dark:bg-[#2d1a21] p-6 flex-col items-center text-center shadow-sm">
+<div class="text-primary bg-primary/10 p-3 rounded-full">
+<span class="material-symbols-outlined text-3xl">woman</span>
+</div>
+<div class="flex flex-col gap-2">
+<h2 class="text-[#1b0d12] dark:text-white text-lg font-bold leading-tight">Para Mujeres</h2>
+<p class="text-[#1b0d12]/70 dark:text-gray-400 text-sm font-normal leading-normal">
+Un vestido de noche largo, un elegante cóctel o un traje de gala.
+                    </p>
+</div>
+</div>
+</div>
+
+<!-- ============================================
+     SECCIÓN PALETA DE COLORES
+     ============================================ -->
+
+<!-- Sugerencia de Paleta de Colores -->
+<div class="px-4 py-8">
+<h3 class="text-[#1b0d12] dark:text-white text-base font-bold text-center mb-6">Nuestra Paleta de Bodas</h3>
+<p class="text-sm text-center text-[#1b0d12]/60 dark:text-gray-400 mb-6">Sugerencias para atuendos de invitados para armonizar con nuestro tema.</p>
+<div class="flex justify-center gap-4">
+<div class="flex flex-col items-center gap-2">
+<div class="w-12 h-12 rounded-full shadow-inner bg-[#2c3e50] border-2 border-white dark:border-gray-800"></div>
+<span class="text-[10px] uppercase tracking-widest font-semibold opacity-60">Medianoche</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-12 h-12 rounded-full shadow-inner bg-[#c9a876] border-2 border-white dark:border-gray-800"></div>
+<span class="text-[10px] uppercase tracking-widest font-semibold opacity-60">Tierra</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-12 h-12 rounded-full shadow-inner bg-[#d4a574] border-2 border-white dark:border-gray-800"></div>
+<span class="text-[10px] uppercase tracking-widest font-semibold opacity-60">Dorado Natural</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-12 h-12 rounded-full shadow-inner bg-[#e8dcc8] border-2 border-white dark:border-gray-800"></div>
+<span class="text-[10px] uppercase tracking-widest font-semibold opacity-60">Crema</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-12 h-12 rounded-full shadow-inner bg-[#8b7355] border-2 border-white dark:border-gray-800"></div>
+<span class="text-[10px] uppercase tracking-widest font-semibold opacity-60">Café</span>
+</div>
+</div>
+</div>
+
+<!-- CTA de Inspiración -->
+<div class="px-4 py-6 mb-10 flex flex-col items-center">
+<a href="https://www.pinterest.com/" class="w-full max-w-xs flex items-center justify-center gap-2 px-6 py-4 bg-primary text-white font-bold rounded-xl shadow-lg shadow-primary/20 hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined text-xl">palette</span>
+<span>Inspiración Visual</span>
+</a>
+<p class="mt-4 text-xs text-[#1b0d12]/50 dark:text-gray-500 italic">Ver nuestro tablero de Pinterest seleccionado</p>
+</div>
+<div class="h-10 bg-background-light dark:bg-background-dark"></div>
+</div>
+
+<!-- ============================================
+     SECCIÓN RSVP / CONFIRMACIÓN
+     ============================================ -->
+
+<main class="flex-1 px-4 pb-12">
+
+<!-- Encabezado de Sección -->
+<div class="pt-8 pb-4">
+<h1 class="text-[#1b0d12] dark:text-white tracking-tight text-[32px] font-bold leading-tight text-center">CONFIRMAR ASISTENCIA</h1>
+<p class="text-[#1b0d12] dark:text-white/80 text-base font-normal leading-normal pt-2 text-center">Esperamos que puedas unirte a nuestro día especial.</p>
+</div>
+
+<!-- Imagen Decorativa -->
+<div class="w-full h-32 mb-8 overflow-hidden rounded-xl">
+<img alt="Arreglo floral elegante de decoración de boda" class="w-full h-full object-cover" data-alt="Decoración elegante y suave de mesa de boda floral" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL2CVx0bOqxJoU95iCuiC68YjKeo_snt3tFm0LDg5XBExZE4NiC4hVWjWM8jQ6sCFMiIyRJcsaWj9Cy0y_sZp9CKploLCN8_2SdAaMcgec10SjHpZStVdVjHAEStzLA_vXXnqE8NkRilGdTGtkAbU3UEuooFSQvoDTMGx58kK_byp0TFLelEbyI8iCagnGnhU8FnJ4QEPHQNFVreCZf0bL6zxnro6Lp4MAVfDQ3Z4XgqsMrWE7vid544mI9jaxEpTUrUhodWHfHdUw"/>
+</div>
+
+<!-- Contenedor del Formulario -->
+<div class="space-y-6">
+
+<!-- Campo Nombre -->
+<div class="flex flex-col gap-2">
+<label class="text-[#1b0d12] dark:text-white text-base font-medium leading-normal">Nombre Completo</label>
+<input class="form-input flex w-full rounded-lg text-[#1b0d12] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/30 border border-[#e7cfd7] dark:border-white/10 bg-white dark:bg-white/5 h-14 placeholder:text-[#9a4c66] dark:placeholder:text-white/40 p-[15px] text-base font-normal" placeholder="Ingresa tu nombre completo" type="text"/>
+</div>
+
+<!-- Toggle de Asistencia -->
+<div class="flex flex-col gap-3">
+<label class="text-[#1b0d12] dark:text-white text-base font-medium leading-normal">¿Asistirás?</label>
+<div class="grid grid-cols-2 gap-3">
+<button class="flex items-center justify-center gap-2 h-14 rounded-lg border-2 border-primary bg-primary/10 text-primary font-bold">
+<span class="material-symbols-outlined">check_circle</span>
+                            Sí, estaré allí
+                        </button>
+<button class="flex items-center justify-center gap-2 h-14 rounded-lg border border-[#e7cfd7] dark:border-white/10 bg-white dark:bg-white/5 text-[#1b0d12] dark:text-white font-medium">
+<span class="material-symbols-outlined">cancel</span>
+                            Lo siento, No
+                        </button>
+</div>
+</div>
+
+<!-- Contador de Número de Invitados -->
+<div class="flex flex-col gap-3">
+<label class="text-[#1b0d12] dark:text-white text-base font-medium leading-normal">Número de Invitados</label>
+<div class="flex items-center justify-between bg-white dark:bg-white/5 border border-[#e7cfd7] dark:border-white/10 rounded-lg p-2 h-14">
+<button class="size-10 flex items-center justify-center rounded-md bg-background-light dark:bg-white/10 text-primary">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<span class="text-lg font-bold">1</span>
+<button class="size-10 flex items-center justify-center rounded-md bg-background-light dark:bg-white/10 text-primary">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+
+<!-- Restricciones Dietéticas -->
+<div class="flex flex-col gap-2">
+<label class="text-[#1b0d12] dark:text-white text-base font-medium leading-normal">Mensaje</label>
+<textarea class="form-textarea flex w-full rounded-lg text-[#1b0d12] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/30 border border-[#e7cfd7] dark:border-white/10 bg-white dark:bg-white/5 h-28 placeholder:text-[#9a4c66] dark:placeholder:text-white/40 p-[15px] text-base font-normal resize-none" placeholder=""></textarea>
+</div>
+
+<!-- Botón de Envío -->
+<div class="pt-4">
+<button class="w-full h-14 bg-primary text-white font-bold text-lg rounded-lg shadow-gold-glow flex items-center justify-center gap-2 active:scale-[0.98] transition-transform">
+<span>Enviar Confirmación</span>
+</button>
+</div>
+</div>
+</main>
+
+<!-- ============================================
+     PIE DE PÁGINA
+     ============================================ -->
+
+<footer class="py-10 flex flex-col items-center justify-center text-center px-4">
+<div class="w-12 h-[1px] bg-gold-accent mb-4"></div>
+<p class="text-[#1b0d12] dark:text-white/60 text-sm font-medium italic leading-relaxed">
+Gracias por ser parte de nuestra historia.<br/>
+No podemos esperar para celebrar contigo.
+            </p>
+<div class="mt-6 flex gap-4 text-primary/40">
+<span class="material-symbols-outlined text-sm">favorite</span>
+<span class="material-symbols-outlined text-sm">favorite</span>
+<span class="material-symbols-outlined text-sm">favorite</span>
+</div>
+
+<!-- Pie de Página Final -->
+<footer class="py-12 border-t border-accent-gold/10 text-center">
+<p class="text-[10px] uppercase tracking-[0.2em] text-[#1b0d12]/40 dark:text-[#fcf8f9]/40">InvitedMx</p>
+</footer>
+</body>
+</html>
