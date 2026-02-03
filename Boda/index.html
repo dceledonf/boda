@@ -564,20 +564,12 @@ Un vestido de noche largo, un elegante cóctel o un traje de gala.
 
 <!-- Botón de Envío -->
 <div class="pt-4">
-<button type="button" class="w-full h-14 bg-primary text-white font-bold text-lg rounded-lg shadow-gold-glow flex items-center justify-center gap-2 active:scale-[0.98] transition-transform">
+<button type="button" class="w-full h-14 bg-primary text-white font-bold text-lg rounded-lg shadow-gold-glow flex items-center justify-center gap-2 active:scale-[0.98] transition-transform" data-action="submit-rsvp">
 <span>Enviar Confirmación</span>
 </button>
 </div>
 </div>
 </main>
-
-<!-- Formulario envuelto con data-form para capturar clics -->
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const mainElement = document.querySelector('main:last-of-type');
-  if (mainElement) mainElement.setAttribute('data-form', 'rsvp');
-});
-</script>
 
 <!-- ============================================
      PIE DE PÁGINA
@@ -682,40 +674,38 @@ No podemos esperar para celebrar contigo.
   
   // ========== FORM SUBMISSION ==========
   function setupFormSubmission() {
-    const form = document.querySelector('[data-form="rsvp"]');
+    const submitBtn = document.querySelector('[data-action="submit-rsvp"]');
     const nameInput = document.querySelector('[data-field="name"]');
     const messageTextarea = document.querySelector('[data-field="message"]');
     const modal = document.getElementById('successModal');
     const modalTitle = document.getElementById('modalTitle');
     const modalMessage = document.getElementById('modalMessage');
     
-    if (form) {
-      form.addEventListener('click', (e) => {
-        if (e.target.tagName === 'BUTTON' && e.target.closest('[data-form="rsvp"]')) {
-          e.preventDefault();
-          
-          const name = nameInput?.value.trim() || 'Invitado';
-          
-          if (!name || name === 'Invitado') {
-            modalTitle.textContent = 'Campo requerido';
-            modalMessage.textContent = 'Por favor, ingresa tu nombre completo.';
-            modal.classList.remove('hidden');
-            return;
-          }
-          
-          modalTitle.textContent = '¡Confirmación Enviada!';
-          modalMessage.textContent = `¡Gracias ${name}! Tu confirmación ha sido enviada exitosamente. 🎉`;
+    if (submitBtn) {
+      submitBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        const name = nameInput?.value.trim() || '';
+        
+        if (!name) {
+          modalTitle.textContent = 'Campo requerido';
+          modalMessage.textContent = 'Por favor, ingresa tu nombre completo.';
           modal.classList.remove('hidden');
-          
-          // Limpiar formulario después de 1 segundo
-          setTimeout(() => {
-            if (nameInput) nameInput.value = '';
-            if (messageTextarea) messageTextarea.value = '';
-            if (document.querySelector('[data-guest-count]')) {
-              document.querySelector('[data-guest-count]').textContent = '1';
-            }
-          }, 1000);
+          return;
         }
+        
+        modalTitle.textContent = '¡Confirmación Enviada!';
+        modalMessage.textContent = `¡Gracias ${name}! Tu confirmación ha sido enviada exitosamente. 🎉`;
+        modal.classList.remove('hidden');
+        
+        // Limpiar formulario después de 1 segundo
+        setTimeout(() => {
+          if (nameInput) nameInput.value = '';
+          if (messageTextarea) messageTextarea.value = '';
+          if (document.querySelector('[data-guest-count]')) {
+            document.querySelector('[data-guest-count]').textContent = '1';
+          }
+        }, 1000);
       });
     }
   }
